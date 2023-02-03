@@ -32,6 +32,18 @@ class PrimarySchool(School):
         return f"{super().__repr__()}. The pick up policy is {self.pick_up_policy}"
 
 
+class HighSchool(School):
+    def __init__(self, name: str, number_of_students: int, sports_teams: list):
+        super().__init__(name, "High School", number_of_students)
+        self.sports_teams = sports_teams
+
+    def get_sports_teams(self):
+        return self.sports_teams
+
+    def __repr__(self):
+        return f"{super().__repr__()}. And has the following sports teams: {', '.join(self.sports_teams)}"
+
+
 # Testing
 luUniversity = School("LU College", "College", 4740)
 print(luUniversity)
@@ -40,3 +52,6 @@ print(luUniversity.get_number_of_students())
 
 luPrimary = PrimarySchool("LU Primary", 473, "Guys can go by themself")
 print(luPrimary)
+
+luHigh = HighSchool("LU High School", 987, ["Soccer", "Basketball", "Football"])
+print(luHigh)
